@@ -23,7 +23,7 @@ inline function updateList(BGT_Browser)
 
 
 //! ================================================== Repaint List ==================================================
-inline function repaintList(BGT_Browser)
+inline function repaintList()
 {
 	for (child in framePnl.getChildPanelList())
 	{

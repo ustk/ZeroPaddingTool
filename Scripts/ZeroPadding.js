@@ -34,6 +34,15 @@ inline function addZeroPadding(list)
 				f.newLength 	= undefined;
 			}
 		}
+		
+		for (child in framePnl.getChildPanelList())
+		{
+			if (child.data.element == f)
+			{
+				child.repaint();
+				child.data.undoBtn.repaint();
+			}
+		}
 	}
 }
 

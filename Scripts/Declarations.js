@@ -18,11 +18,20 @@ const var LINE_HEIGHT = 40;
 
 const var fileList = [];
 
-const var BGT_Browser = Engine.createBackgroundTask("BGT_Browser");
+const var BGT = Engine.createBackgroundTask("BGT");
 
 reg currentDirectory = undefined;
+reg listToBePadded = [];
 
 
+//! Enums
+namespace Mode
+{
+	reg mode;
+	const var ALL = 0;
+	const var SEL = 1;
+	const var TOK = 2;
+}
 
 
 

@@ -16,7 +16,7 @@ inline function onaddFileBtnControl(component, value)
 				if (isAudioFile(f))
 					addFileToList(f);
 				
-				BGT_Browser.callOnBackgroundThread(updateList);
+				BGT.callOnBackgroundThread(updateList);
 				currentDirectory = f.getParentDirectory();
 			}
 		});
@@ -46,7 +46,7 @@ inline function onaddDirBtnControl(component, value)
 						addFileToList(f);
 				}
 				
-				BGT_Browser.callOnBackgroundThread(updateList);
+				BGT.callOnBackgroundThread(updateList);
 				currentDirectory = r;
 			}
 		});
@@ -77,16 +77,8 @@ inline function onpadSelectedBtnControl(component, value)
 {
 	if (value)
 	{
-		local list = [];
-		
-		for (f in fileList)
-		{
-			if (f.isSelected)
-				list.push(f);
-		}
-		
-		addZeroPadding(list);
-		BGT_Browser.callOnBackgroundThread(repaintList);
+		Mode.mode = Mode.SEL;
+		BGT.callOnBackgroundThread(prepareForPadding);
 	}
 };
 Content.getComponent("padSelectedBtn").setControlCallback(onpadSelectedBtnControl);
@@ -97,8 +89,8 @@ inline function onpadAllBtnControl(component, value)
 {
 	if (value)
 	{
-		addZeroPadding(fileList);
-		BGT_Browser.callOnBackgroundThread(repaintList);
+		Mode.mode = Mode.ALL;
+		BGT.callOnBackgroundThread(prepareForPadding);
 	}
 };
 Content.getComponent("padAllBtn").setControlCallback(onpadAllBtnControl);
@@ -109,27 +101,51 @@ inline function onpadTokenBtnControl(component, value)
 {
 	if (value)
 	{
-		for (t in getTokenList())
-		{
-			for (d in getDirectoryList())
-			{
-				local list = [];
-				
-				for (f in fileList)
-				{
-					if (getToken(f) == t && f.file.getParentDirectory().toString(0) == d)
-						list.push(f);
-				}
-				
-				addZeroPadding(list);
-			}
-		}
-		
-		BGT_Browser.callOnBackgroundThread(repaintList);
+		Mode.mode = Mode.TOK;
+		BGT.callOnBackgroundThread(prepareForPadding);
 	}
 };
 Content.getComponent("padTokenBtn").setControlCallback(onpadTokenBtnControl);
 
+
+//! Prepare For Padding
+inline function prepareForPadding(BGT)
+{
+	switch (Mode.mode)
+	{
+		case Mode.ALL: 	addZeroPadding(fileList);
+						break;
+		
+		case Mode.SEL: 	local list = [];
+						
+						for (f in fileList)
+						{
+							if (f.isSelected)
+								list.push(f);
+						}
+						
+						addZeroPadding(list);
+						break;
+						
+		case Mode.TOK:	for (t in getTokenList())
+						{
+							for (d in getDirectoryList())
+							{
+								local list = [];
+								
+								for (f in fileList)
+								{
+									if (getToken(f) == t && f.file.getParentDirectory().toString(0) == d)
+										list.push(f);
+								}
+								
+								addZeroPadding(list);
+							}
+						}
+						
+						break;
+	}
+}
 
 
 //! ================================================== Undo All Padding ==================================================
@@ -140,7 +156,7 @@ inline function onundoBtnControl(component, value)
 		for (f in fileList)
 			undoPaddedFile(f);
 		
-		BGT_Browser.callOnBackgroundThread(repaintList);
+		repaintList();
 	}
 
 };
@@ -218,8 +234,7 @@ inline function onexportBtnControl(component, value)
 		
 		if (atLeastOneExportedFile)
 		{
-			BGT_Browser.callOnBackgroundThread(repaintList);
-			
+			repaintList();
 			Engine.showMessageBox("EXPORT", "All padded files have been successfully exported!", 0);
 		}
 	}
@@ -246,7 +261,7 @@ inline function ondeleteAllBtnControl(component, value)
 	if (value)
 	{
 		fileList.clear();
-		BGT_Browser.callOnBackgroundThread(updateList);
+		BGT.callOnBackgroundThread(updateList);
 	}
 };
 deleteAllBtn.setControlCallback(ondeleteAllBtnControl);
