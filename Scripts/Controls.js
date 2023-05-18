@@ -134,21 +134,10 @@ inline function onundoBtnControl(component, value)
 {
 	if (value)
 	{
-		local atLeastOneAction = false;
-		
 		for (f in fileList)
-		{
-			if (f.isPadded)
-			{
-				undoPaddedFile(f);
-				atLeastOneAction = true;
-			}
-			
-			f.isRef = false;
-		}
+			undoPaddedFile(f);
 		
-		if (atLeastOneAction)
-			BGT_Browser.callOnBackgroundThread(repaintList);
+		BGT_Browser.callOnBackgroundThread(repaintList);
 	}
 
 };

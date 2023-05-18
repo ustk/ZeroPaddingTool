@@ -118,6 +118,7 @@ inline function undoPaddedFile(f)
 {
 	f.paddedBuffer 		= [];
 	f.isPadded 			= false;
+	f.isRef 			= false;
 	f.lengthAdded 		= undefined;
 	f.newLength 		= undefined;
 }
