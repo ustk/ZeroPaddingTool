@@ -22,6 +22,14 @@ inline function updateList(BGT_Browser)
 }
 
 
+//! ================================================== Repaint List ==================================================
+inline function repaintList(BGT_Browser)
+{
+	for (child in framePnl.getChildPanelList())
+		child.repaint();
+}
+
+
 //! ================================================== Create Rows ==================================================
 inline function createRow(idx, isDir)
 {

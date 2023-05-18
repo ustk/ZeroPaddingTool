@@ -86,7 +86,7 @@ inline function onpadSelectedBtnControl(component, value)
 		}
 		
 		addZeroPadding(list);
-		BGT_Browser.callOnBackgroundThread(updateList);
+		BGT_Browser.callOnBackgroundThread(repaintList);
 	}
 };
 Content.getComponent("padSelectedBtn").setControlCallback(onpadSelectedBtnControl);
@@ -98,7 +98,7 @@ inline function onpadAllBtnControl(component, value)
 	if (value)
 	{
 		addZeroPadding(fileList);
-		BGT_Browser.callOnBackgroundThread(updateList);
+		BGT_Browser.callOnBackgroundThread(repaintList);
 	}
 };
 Content.getComponent("padAllBtn").setControlCallback(onpadAllBtnControl);
@@ -122,7 +122,7 @@ inline function onpadTokenBtnControl(component, value)
 			addZeroPadding(list);
 		}
 		
-		BGT_Browser.callOnBackgroundThread(updateList);
+		BGT_Browser.callOnBackgroundThread(repaintList);
 	}
 };
 Content.getComponent("padTokenBtn").setControlCallback(onpadTokenBtnControl);
@@ -151,7 +151,7 @@ inline function onundoBtnControl(component, value)
 		}
 		
 		if (atLeastOneAction)
-			BGT_Browser.callOnBackgroundThread(updateList);
+			BGT_Browser.callOnBackgroundThread(repaintList);
 	}
 
 };
@@ -229,7 +229,7 @@ inline function onexportBtnControl(component, value)
 		
 		if (atLeastOneExportedFile)
 		{
-			BGT_Browser.callOnBackgroundThread(updateList);
+			BGT_Browser.callOnBackgroundThread(repaintList);
 			
 			Engine.showMessageBox("EXPORT", "All padded files have been successfully exported!", 0);
 		}
