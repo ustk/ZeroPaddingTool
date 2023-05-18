@@ -108,45 +108,6 @@ inline function onpadTokenBtnControl(component, value)
 Content.getComponent("padTokenBtn").setControlCallback(onpadTokenBtnControl);
 
 
-//! Prepare For Padding
-inline function prepareForPadding(BGT)
-{
-	switch (Mode.mode)
-	{
-		case Mode.ALL: 	addZeroPadding(fileList);
-						break;
-		
-		case Mode.SEL: 	local list = [];
-						
-						for (f in fileList)
-						{
-							if (f.isSelected)
-								list.push(f);
-						}
-						
-						addZeroPadding(list);
-						break;
-						
-		case Mode.TOK:	for (t in getTokenList())
-						{
-							for (d in getDirectoryList())
-							{
-								local list = [];
-								
-								for (f in fileList)
-								{
-									if (getToken(f) == t && f.file.getParentDirectory().toString(0) == d)
-										list.push(f);
-								}
-								
-								addZeroPadding(list);
-							}
-						}
-						
-						break;
-	}
-}
-
 
 //! ================================================== Undo All Padding ==================================================
 inline function onundoBtnControl(component, value)
