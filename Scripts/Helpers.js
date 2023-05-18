@@ -76,6 +76,17 @@ inline function getToken(f)
 }
 
 
+//! Get Directory List
+inline function getDirectoryList()
+{
+	local dirs = [];
+	
+	for (f in fileList)
+		dirs.pushIfNotAlreadyThere(f.file.getParentDirectory().toString(0));
+	
+	return dirs;
+}
+
 
 //! Get Paths
 inline function getPaths(buffers)

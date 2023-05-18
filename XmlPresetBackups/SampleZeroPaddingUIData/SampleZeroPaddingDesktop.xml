@@ -58,16 +58,16 @@
   <Component type="ScriptButton" id="undoBtn" x="640.0" y="90.0" text="UNDO ALL"
              width="80.0" height="30.0" isMomentary="1" enableMidiLearn="0"
              saveInPreset="0" itemColour="905969663"/>
-  <Component type="ScriptButton" id="deselectAllBtn" x="30.0" y="128.0" width="50.0"
+  <Component type="ScriptButton" id="deselectAllBtn" x="30.0" y="133.0" width="50.0"
              height="12.0" text="deselect all" isMomentary="1" enableMidiLearn="0"
              textColour="4289901234" saveInPreset="0" itemColour="4294967295"/>
-  <Component type="ScriptButton" id="deleteAllBtn" x="720.0" y="128.0" width="50.0"
+  <Component type="ScriptButton" id="deleteAllBtn" x="720.0" y="133.0" width="50.0"
              height="12.0" text="delete all" isMomentary="1" enableMidiLearn="0"
              textColour="4289901234" saveInPreset="0" itemColour="4294901760"/>
-  <Component type="ScriptPanel" id="frameBgPnl" x="30.0" y="140.0" borderSize="0.0"
+  <Component type="ScriptPanel" id="frameBgPnl" x="30.0" y="145.0" borderSize="0.0"
              borderRadius="0.0" itemColour="4285032552" itemColour2="4282532418"
              width="740.0" height="373.0"/>
-  <Component type="ScriptedViewport" id="Viewport1" x="32.0" y="142.0" width="747.0"
+  <Component type="ScriptedViewport" id="Viewport1" x="32.0" y="147.0" width="747.0"
              height="369.0" scrollBarThickness="10.0" saveInPreset="0" viewPositionY="1.0">
     <Component type="ScriptPanel" id="framePnl" x="0.0" y="-644.0" width="736.0"
                height="2" parentComponent="Viewport1" bgColour="0" itemColour="0"

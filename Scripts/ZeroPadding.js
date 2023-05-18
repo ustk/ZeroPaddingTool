@@ -21,15 +21,17 @@ inline function addZeroPadding(list)
 				
 				f.paddedBuffer[idx] = pad;
 				
-				f.lengthAdded 	= l - f.originalLength;
-				f.newLength 	= f.paddedBuffer[idx].length;
 				f.isPadded 		= true;
 				f.isRef			= false;
+				f.lengthAdded 	= l - f.originalLength;
+				f.newLength 	= f.paddedBuffer[idx].length;
 			}
 			else
 			{
-				f.isRef		= true;
-				f.isPadded 	= false;
+				f.isRef			= true;
+				f.isPadded 		= false;
+				f.lengthAdded 	= undefined;
+				f.newLength 	= undefined;
 			}
 		}
 	}
