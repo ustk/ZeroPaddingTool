@@ -9,6 +9,7 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0" NumAudioFiles="1">
           <ChildProcessors/>
           <Content>
+            <Control type="ScriptButton" id="recursiveBtn" value="1.0"/>
             <Control type="ScriptButton" id="overwriteBtn" value="0.0"/>
             <Control type="ScriptButton" id="newDirectoryBtn" value="0.0"/>
           </Content>

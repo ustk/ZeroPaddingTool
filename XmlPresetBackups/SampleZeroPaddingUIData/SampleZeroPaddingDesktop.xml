@@ -4,11 +4,11 @@
   <Component type="ScriptLabel" id="titleLbl" x="200.0" y="10.0" width="400.0"
              height="50.0" text="ZERO PADDING TOOL" editable="0" fontSize="36.0"
              textColour="4290164406" fontName="Arial Black"/>
-  <Component type="ScriptLabel" id="subtitleLbl" x="350.0" y="45.0" width="100"
-             height="10" text="Made with Hise" editable="0" fontSize="9.0"
+  <Component type="ScriptLabel" id="subtitleLbl" x="350.0" y="45.0" width="100.0"
+             height="10.0" text="Made with Hise" editable="0" fontSize="9.0"
              fontName="Source Code Pro" textColour="4287664272"/>
   <Component type="ScriptLabel" id="licenseLbl" x="740.0" y="0.0" width="60.0"
-             height="10" text="GNU GPL v3" editable="0" fontSize="9.0" fontName="Source Code Pro"
+             height="10.0" text="GNU GPL v3" editable="0" fontSize="9.0" fontName="Source Code Pro"
              textColour="4285164138" alignment="right"/>
   <Component type="ScriptLabel" id="addFilesLbl" x="80.0" y="70.0" width="150.0"
              height="10.0" text="ADD FILES" bgColour="4290164406" textColour="4278190080"
@@ -19,6 +19,12 @@
   <Component type="ScriptButton" id="addDirBtn" x="160.0" y="90.0" enableMidiLearn="0"
              isMomentary="1" width="70.0" height="30.0" text="+ DIR" saveInPreset="0"
              itemColour="905969663"/>
+  <Component type="ScriptLabel" id="recursiveLbl" x="158.0" y="123.0" width="60.0"
+             height="10.0" text="Recursive" editable="0" fontSize="11.0" fontName="Source Code Pro"
+             textColour="4289901234" alignment="right"/>
+  <Component type="ScriptButton" id="recursiveBtn" x="216.0" y="123.0" enableMidiLearn="0"
+             width="10.0" height="10.0" text="" bgColour="4290164406" textColour="4278190080"
+             itemColour2="4285032552"/>
   <Component type="ScriptLabel" id="zeroPaddingLbl" x="250.0" y="70.0" width="370.0"
              height="10.0" text="ADD ZERO PADDING" bgColour="4290164406" textColour="4278190080"
              editable="0" fontSize="10.0"/>

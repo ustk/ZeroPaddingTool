@@ -3,6 +3,7 @@
 
 //! Components
 const var framePnl 			= Content.getComponent("framePnl");
+const var recursiveBtn 		= Content.getComponent("recursiveBtn");
 const var tokenSepLbl 		= Content.getComponent("tokenSepLbl");
 const var tokenNbLbl 		= Content.getComponent("tokenNbLbl");
 const var deselectAllBtn 	= Content.getComponent("deselectAllBtn");

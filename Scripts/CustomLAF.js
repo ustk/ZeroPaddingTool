@@ -27,6 +27,7 @@ for(c in btnLAF_targets)
 
 //! Checkbox
 const var checkBox = Content.createLocalLookAndFeel();
+recursiveBtn.setLocalLookAndFeel(checkBox);
 overwriteBtn.setLocalLookAndFeel(checkBox);
 newDirectoryBtn.setLocalLookAndFeel(checkBox);
 

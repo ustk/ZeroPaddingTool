@@ -37,7 +37,7 @@ inline function onaddDirBtnControl(component, value)
 		{
 			if (r.isDirectory())
 			{
-				var files = FileSystem.findFiles(r, "*", true);
+				var files = FileSystem.findFiles(r, "*", recursiveBtn.getValue());
 				
 				for (f in files)
 				{
