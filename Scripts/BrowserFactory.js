@@ -43,10 +43,10 @@ inline function createRow(idx, isDir)
 	//!> Paint routine
 	p.setPaintRoutine(function(g)
 	{
-		g.setColour(0xffb2b2b2);
-		g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0.0);
+		g.setColour(0xff525252);
+		g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 4.0);
 		
-		g.setColour(Colours.black);
+		g.setColour(Colours.white);
 		g.setFont("Source Code Pro", 12.0);
 		g.drawAlignedText(this.data.element.file.toString(3), [20, 0, this.getWidth(), this.getHeight()/2.0], "bottomLeft");
 		
@@ -58,12 +58,12 @@ inline function createRow(idx, isDir)
 		if (isDefined(this.data.element.newLength))
 			string += " = " + this.data.element.newLength;
 			
-		g.setColour(0xff525252);
+		g.setColour(0xffb2b2b2);
 		g.drawAlignedText(string, [20, this.getHeight()/2.0, this.getWidth(), this.getHeight()/2.0], "topLeft");
 		
 		if (this.data.element.isRef)
 		{
-			g.setColour(Colours.green);
+			g.setColour(Colours.white);
 			g.drawAlignedText("Ref.", [this.getWidth()/2 - 40, 0, 38, this.getHeight()], "right");
 		}
 		
@@ -76,7 +76,7 @@ inline function createRow(idx, isDir)
 		// Waveform
 		var bg = [this.getWidth()/2, 2, this.getWidth()/2 - 20, this.getHeight() - 4];
 		
-		g.setColour(Colours.withAlpha(Colours.white, 0.2));
+		g.setColour(0xff363636);
 		g.fillRoundedRectangle(bg, 0.0);
 		
 		var paths;
@@ -94,12 +94,12 @@ inline function createRow(idx, isDir)
 				var x1 = bg[0] + bg[2] / this.data.element.newLength * this.data.element.originalLength;
 				var x2 = x1 + bg[2] / this.data.element.newLength * this.data.element.lengthAdded;
 				var y = 2 + i * bg[3]/paths.length + bg[3]/(2*paths.length);
-				g.drawLine(x1, x2, y, y, 3.0);
+				g.drawLine(x1, x2, y, y, 2.0);
 			}
 			
 			var a = [bg[0], 2 + i * bg[3]/paths.length, bg[2], bg[3]/paths.length];
 			
-			g.setColour(0xff525252);
+			g.setColour(0xffb2b2b2);
 			g.drawPath(paths[i], a, 0.50);
 		}
 	});
@@ -122,8 +122,8 @@ inline function addSelectBtn(parent)
 	//!> Paint routine
 	b.setPaintRoutine(function(g)
 	{
-		g.fillAll(Colours.white);
-		g.setColour(Colours.black);
+		g.fillAll(0xff6e6e6e);
+		g.setColour(Colours.white);
 		
 		var remove = 1;
 		
@@ -158,11 +158,11 @@ inline function addRemoveBtn(parent)
 	//!> Paint routine
 	b.setPaintRoutine(function(g)
 	{
-		g.setColour(this.data.hover ? Colours.red : 0xff525252);
+		g.setColour(this.data.hover ? Colours.red : 0xff363636);
 		
 		var remove = 1;
-		g.drawLine(remove, this.getWidth() - remove, remove, this.getWidth() - remove, 2.0);
-		g.drawLine(remove, this.getWidth() - remove, this.getWidth() - remove, remove, 2.0);
+		g.drawLine(remove, this.getWidth() - remove, remove, this.getWidth() - remove, 1.0);
+		g.drawLine(remove, this.getWidth() - remove, this.getWidth() - remove, remove, 1.0);
 	});
 	
 	//!> Mouse CB

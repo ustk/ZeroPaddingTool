@@ -8,7 +8,7 @@ btnLAF.registerFunction("drawToggleButton", function(g, obj)
 {
 	g.setColour(obj.over ? obj.bgColour : obj.itemColour1);
 	g.fillRoundedRectangle(obj.area, 4.0);
-	g.setColour(obj.textColour);
+	g.setColour(obj.over ?  obj.textColour : 0xFFB6B6B6);
 	g.setFont("Arial", 11.0);
 	g.drawAlignedText(obj.text, obj.area, "centred");
 });
