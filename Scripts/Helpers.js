@@ -113,6 +113,15 @@ inline function getPaths(buffers)
 
 
 
+//! Undo
+inline function undoPaddedFile(f)
+{
+	f.paddedBuffer 		= [];
+	f.isPadded 			= false;
+	f.lengthAdded 		= undefined;
+	f.newLength 		= undefined;
+}
+
 
 
 

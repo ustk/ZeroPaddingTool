@@ -140,11 +140,8 @@ inline function onundoBtnControl(component, value)
 		{
 			if (f.isPadded)
 			{
-				f.paddedBuffer 		= [];
-				f.isPadded 			= false;
-				f.lengthAdded 		= undefined;
-				f.newLength 		= undefined;
-				atLeastOneAction 	= true;
+				undoPaddedFile(f);
+				atLeastOneAction = true;
 			}
 			
 			f.isRef = false;

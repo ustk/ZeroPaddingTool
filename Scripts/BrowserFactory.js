@@ -26,7 +26,10 @@ inline function updateList(BGT_Browser)
 inline function repaintList(BGT_Browser)
 {
 	for (child in framePnl.getChildPanelList())
+	{
 		child.repaint();
+		child.data.undoBtn.repaint();
+	}
 }
 
 
@@ -106,6 +109,7 @@ inline function createRow(idx, isDir)
 	
 	addSelectBtn(p);
 	addRemoveBtn(p);
+	addUndoBtn(p);
 }
 
 
@@ -129,8 +133,8 @@ inline function addSelectBtn(parent)
 		
 		if (this.getParentPanel().data.element.isSelected)
 		{
-			g.drawLine(remove, this.getWidth() - remove, remove, this.getWidth() - remove, 1);
-			g.drawLine(remove, this.getWidth() - remove, this.getWidth() - remove, remove, 1);
+			g.drawLine(1, 4, 4, 9, 1.0);
+			g.drawLine(4, 9, 9, 1, 1.0);
 		}
 	});
 	
@@ -152,7 +156,7 @@ inline function addRemoveBtn(parent)
 	local b = parent.addChildPanel();
 	parent.data.removeBtn = b;
 	
-	b.setPosition(parent.getWidth() - 15, (parent.getHeight()-10)/2, 10, 10);
+	b.setPosition(parent.getWidth() - 15, (parent.getHeight()-20)/3, 10, 10);
 	b.set("allowCallbacks", "Clicks & Hover");
 	
 	//!> Paint routine
@@ -178,6 +182,43 @@ inline function addRemoveBtn(parent)
 		}
 		
 		this.repaint();
+	});
+}
+	
+
+
+//! ================================================== Add Undo Btn ==================================================
+inline function addUndoBtn(parent)
+{
+	local b = parent.addChildPanel();
+	parent.data.undoBtn = b;
+	
+	b.setPosition(parent.getWidth() - 15, 2*(parent.getHeight()-20)/3+10, 10, 10);
+	b.set("allowCallbacks", "Clicks & Hover");
+	
+	//!> Paint routine
+	b.setPaintRoutine(function(g)
+	{
+		g.setColour(this.data.hover ? Colours.red : this.getParentPanel().data.element.isPadded ? 0xff363636 : 0x88363636);
+		g.fillPath(Paths.undo, this.getLocalBounds(0.0));
+	});
+	
+	//!> Mouse CB
+	b.setMouseCallback(function(event)
+	{
+		if (this.getParentPanel().data.element.isPadded)
+		{
+			this.data.hover = event.hover;
+			
+			if (event.clicked)
+			{
+				undoPaddedFile(this.getParentPanel().data.element);
+				this.data.hover = false;
+				this.getParentPanel().repaint();
+			}
+			
+			this.repaint();
+		}
 	});
 }
 	
