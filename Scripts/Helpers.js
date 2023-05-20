@@ -69,7 +69,7 @@ inline function getToken(f)
 	local separator = tokenSepLbl.getValue();
 	local tokens = f.file.toString(1).split(separator);
 	
-	local tokenNumber = parseInt(tokenNbLbl.getValue()) - 1;
+	local tokenNumber = Math.range(Math.round(tokenNbLbl.getValue())-1, 0, tokens.length-1);
 	tokenNumber = Math.range(tokenNumber, 0, tokens.length);
 	
 	return tokens[tokenNumber];

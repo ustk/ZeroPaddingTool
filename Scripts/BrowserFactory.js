@@ -15,10 +15,14 @@ inline function updateList(BGT_Browser)
 {
 	removeDanglingPanels();
 	
-	for (i=0; i<(fileList.length); i++)
+	for (i=0; i<fileList.length; i++)
+	{
 		createRow(i, fileList[i].isDir);
+	}
 	
 	framePnl.set("height", fileList.length * LINE_HEIGHT);
+	
+	tokenSepLbl.changed();
 }
 
 

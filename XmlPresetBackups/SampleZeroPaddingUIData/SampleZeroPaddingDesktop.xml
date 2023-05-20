@@ -37,21 +37,23 @@
   <Component type="ScriptButton" id="padTokenBtn" x="450.0" y="90.0" isMomentary="1"
              enableMidiLearn="0" width="90.0" height="30.0" text="BY TOKEN"
              saveInPreset="0" itemColour="905969663"/>
-  <Component type="ScriptLabel" id="tokenLbl" x="550.0" y="90.0" width="70.0"
+  <Component type="ScriptLabel" id="tokenLbl" x="550.0" y="90.0" width="90.0"
              height="10.0" text="Token" editable="0" fontSize="12.0" fontName="Source Code Pro"
              textColour="4289901234"/>
-  <Component type="ScriptLabel" id="tokenSepLbl2" x="540.0" y="106.0" width="35.0"
-             height="12.0" text="Sep." editable="0" fontSize="12.0" fontName="Source Code Pro"
+  <Component type="ScriptLabel" id="tokenSepLbl2" x="536.0" y="106.0" width="35.0"
+             height="12.0" text="Sep." editable="0" fontSize="10.0" fontName="Source Code Pro"
              alignment="right" textColour="4289901234"/>
-  <Component type="ScriptLabel" id="tokenNbLbl2" x="577.0" y="106.0" width="30.0"
-             height="12.0" text="#" editable="0" fontSize="12.0" fontName="Source Code Pro"
+  <Component type="ScriptLabel" id="tokenNbLbl2" x="573.0" y="106.0" width="30.0"
+             height="12.0" text="#" editable="0" fontSize="10.0" fontName="Source Code Pro"
              alignment="right" textColour="4289901234"/>
-  <Component type="ScriptLabel" id="tokenSepLbl" x="570.0" y="106.0" width="15.0"
-             height="12.0" text="_" bgColour="4285032552" textColour="4278190080"
-             fontName="Source Code Pro" itemColour2="4219568513" fontSize="11.0"/>
-  <Component type="ScriptLabel" id="tokenNbLbl" x="605.0" y="106.0" width="15.0"
+  <Component type="ScriptLabel" id="tokenSepLbl" x="565.0" y="106.0" width="21.0"
+             height="12" text="_" bgColour="4285032552" textColour="4278190080"
+             fontName="Source Code Pro" itemColour2="4219568513" fontSize="10.0"
+             saveInPreset="1"/>
+  <Component type="ScriptLabel" id="tokenNbLbl" x="600.0" y="106.0" width="21.0"
              height="12.0" text="1" bgColour="4285032552" textColour="4278190080"
-             fontName="Source Code Pro" itemColour2="4219568513" fontSize="11.0"/>
+             fontName="Source Code Pro" itemColour2="4219568513" fontSize="10.0"
+             saveInPreset="1"/>
   <Component type="ScriptLabel" id="undoLbl" x="640.0" y="70.0" width="80.0"
              height="10.0" text="UNDO" bgColour="4290164406" textColour="4278190080"
              editable="0" fontSize="10.0"/>
@@ -91,4 +93,9 @@
   <Component type="ScriptButton" id="exportBtn" x="420.0" y="550.0" isMomentary="1"
              enableMidiLearn="0" width="120.0" height="30.0" text="EXPORT"
              saveInPreset="0" itemColour="905969663"/>
+  <Component type="ScriptPanel" id="progressBarPnl" x="30.0" y="520.0" width="nan"
+             height="5.0"/>
+  <Component type="ScriptLabel" id="tokenExempleLbl" x="550.0" y="123.0" width="90.0"
+             height="10.0" text="" editable="0" fontSize="10.0" fontName="Source Code Pro"
+             textColour="4286677377"/>
 </ContentProperties>

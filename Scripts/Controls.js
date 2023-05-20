@@ -108,6 +108,23 @@ inline function onpadTokenBtnControl(component, value)
 Content.getComponent("padTokenBtn").setControlCallback(onpadTokenBtnControl);
 
 
+//! Token Preview
+inline function ontokenSepAndNbLblsControl(component, value)
+{
+	if (component == tokenNbLbl)
+		component.set("text", Math.round(Math.max(tokenNbLbl.getValue(), 1)));
+	
+	if (isDefined(fileList[0]))
+	{
+		tokenExempleLbl.set("text", getToken(fileList[0]));
+		return;
+	}
+	
+	tokenExempleLbl.set("text", "");
+};
+
+for (b in tokenSepAndNbLbls) b.setControlCallback(ontokenSepAndNbLblsControl);
+
 
 //! ================================================== Undo All Padding ==================================================
 inline function onundoBtnControl(component, value)
